@@ -9,8 +9,8 @@
   "dependencies": [
     "base",
     "FluidMustFlow",
-    "(?) space-age",
-    "(?) Krastorio2-spaced-out"
+    "? space-age",
+    "? Krastorio2-spaced-out"
   ],
   "quality_required": false,
   "rail_bridges_required": false,
