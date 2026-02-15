@@ -1,0 +1,22 @@
+{
+  "name": "larger-machines",
+  "version": "1.0.0",
+  "title": "Larger Machines",
+  "author": "juh9870",
+  "homepage": "https://github.com/juh9870/factorio-larger-machines",
+  "description": "Space Age machines but chonkier\n\nMod and a library for enlarging machines. Enrlarged machines connect to ducts from Fluid Must Flow instead of regular pipes",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base",
+    "FluidMustFlow",
+    "(?) space-age",
+    "(?) Krastorio2-spaced-out"
+  ],
+  "quality_required": false,
+  "rail_bridges_required": false,
+  "space_travel_required": false,
+  "spoiling_required": false,
+  "freezing_required": false,
+  "segmented_units_required": false,
+  "expansion_shaders_required": false
+}
