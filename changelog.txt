@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-02-16
+  Features:
+    - added mod settings to toggle machine enlargement
+    - Biochamber enlargement support (disabled by default)
+  Compatibility:
+    - added maraxsis support
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2026-02-15
   Changes:
