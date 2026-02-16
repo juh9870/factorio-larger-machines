@@ -74,6 +74,31 @@ if mods["space-age"] then
 		})
 	end
 
+	if settings.startup["larger-machines-enlarge-biochamber"].value then
+		---@type LargerMachines.ModData
+		local cryogenic_plant_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-biochamber",
+			data = {
+				machine = "biochamber",
+				old_size = 3,
+				size = 6,
+				pipe_connection_category_replacement = "ducts",
+				pipe_picture_shift = {
+					north = { x = -0.5 / 32, y = -13 / 32 },
+					east = { x = 16 / 32, y = 2 / 32 },
+					south = { x = -0.5 / 32, y = 13 / 32 },
+					west = { x = -16 / 32, y = 2 / 32 },
+				},
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+			},
+		}
+		data:extend({
+			cryogenic_plant_data --[[@as data.ModData]],
+		})
+	end
+
 	if settings.startup["larger-machines-enlarge-electromagnetic-plant"].value then
 		---@type LargerMachines.ModData
 		local electromagnetic_plant_data = {

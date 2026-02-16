@@ -18,6 +18,12 @@ if mods["space-age"] then
 			setting_type = "startup",
 			default_value = true,
 		},
+		{
+			type = "bool-setting",
+			name = "larger-machines-enlarge-biochamber",
+			setting_type = "startup",
+			default_value = false,
+		},
 	})
 end
 
