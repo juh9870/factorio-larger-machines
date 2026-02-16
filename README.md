@@ -2,11 +2,18 @@
 
 # Larger Machines mod
 
-Mod and a library for enlarging machines. Enrlarged machines connect to ducts from Fluid Must Flow instead of regular pipes
+Mod and a library for enlarging machines. Enlarged machines connect to ducts from Fluid Must Flow instead of regular pipes
 
+## Machines
 - **Foundry** - Enlarged to 10x10
 - **EM Plant** - Enlarged to 8x8
 - **Cryogenic plant** - Enlarged to 10x10
 - **Advanced Furnace** (if K2SO is installed) - Enlarged to 14x14
 
+Disabled by default:
+- **Biochamber** - Enlarged to 6x6, but looks bad. Can be enabled in mod settings
+
 Speed of enlarged machines is not affected (but you can place more beacons around them)
+
+## Compatibility
+- [Maraxsis](https://mods.factorio.com/mod/maraxsis) - Maraxsis gates ducts into itself, soft-locking the usage of enlarged machines. To combat this, the ducts recipe is moved back to Nauvis and switched to use steel+concrete instead of tungsten
