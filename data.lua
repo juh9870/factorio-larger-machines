@@ -27,108 +27,120 @@
 ---@field y? number
 
 if mods["space-age"] then
-	---@type LargerMachines.ModData
-	local foundry_data = {
-		type = "mod-data",
-		data_type = "larger-machines-definition",
-		name = "larger-machines-foundry",
-		data = {
-			machine = "foundry",
-			old_size = 5,
-			size = 10,
-			pipe_connection_category_replacement = "ducts",
-			pipe_cover_shift = {
-				north = { x = 0 / 32, y = -17 / 32 },
-				east = { x = 15 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 14 / 32 },
-				west = { x = -15 / 32, y = 2 / 32 },
+	if settings.startup["larger-machines-enlarge-foundry"].value then
+		---@type LargerMachines.ModData
+		local foundry_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-foundry",
+			data = {
+				machine = "foundry",
+				old_size = 5,
+				size = 10,
+				pipe_connection_category_replacement = "ducts",
+				pipe_cover_shift = {
+					north = { x = 0 / 32, y = -17 / 32 },
+					east = { x = 15 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 14 / 32 },
+					west = { x = -15 / 32, y = 2 / 32 },
+				},
 			},
-		},
-	}
+		}
 
-	---@type LargerMachines.ModData
-	local cryogenic_plant_data = {
-		type = "mod-data",
-		data_type = "larger-machines-definition",
-		name = "larger-machines-cryogenic-plant",
-		data = {
-			machine = "cryogenic-plant",
-			old_size = 5,
-			size = 10,
-			pipe_connection_category_replacement = "ducts",
-			pipe_picture_shift = {
-				north = { x = 0 / 32, y = -18 / 32 },
-				east = { x = 16 / 32, y = 1.5 / 32 },
-				south = { x = 0 / 32, y = 14 / 32 },
-				west = { x = -16 / 32, y = 1.5 / 32 },
-			},
-			pipe_cover_shift = {
-				north = { x = 0 / 32, y = -17 / 32 },
-				east = { x = 15 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 14 / 32 },
-				west = { x = -15 / 32, y = 2 / 32 },
-			},
-		},
-	}
+		data:extend({
+			foundry_data --[[@as data.ModData]],
+		})
+	end
 
-	---@type LargerMachines.ModData
-	local electromagnetic_plant_data = {
-		type = "mod-data",
-		data_type = "larger-machines-definition",
-		name = "larger-machines-electromagnetic-plant",
-		data = {
-			machine = "electromagnetic-plant",
-			old_size = 4,
-			size = 8,
-			pipe_connection_category_replacement = "ducts",
-			pipe_picture_shift = {
-				north = { x = -0.5 / 32, y = -12 / 32 },
-				east = { x = 16 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 11 / 32 },
-				west = { x = -15 / 32, y = 2 / 32 },
+	if settings.startup["larger-machines-enlarge-cryogenic-plant"].value then
+		---@type LargerMachines.ModData
+		local cryogenic_plant_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-cryogenic-plant",
+			data = {
+				machine = "cryogenic-plant",
+				old_size = 5,
+				size = 10,
+				pipe_connection_category_replacement = "ducts",
+				pipe_picture_shift = {
+					north = { x = 0 / 32, y = -18 / 32 },
+					east = { x = 16 / 32, y = 1.5 / 32 },
+					south = { x = 0 / 32, y = 14 / 32 },
+					west = { x = -16 / 32, y = 1.5 / 32 },
+				},
+				pipe_cover_shift = {
+					north = { x = 0 / 32, y = -17 / 32 },
+					east = { x = 15 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 14 / 32 },
+					west = { x = -15 / 32, y = 2 / 32 },
+				},
 			},
-			pipe_cover_shift = {
-				north = { x = 0 / 32, y = -17 / 32 },
-				east = { x = 15 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 14 / 32 },
-				west = { x = -15 / 32, y = 2 / 32 },
-			},
-		},
-	}
+		}
+		data:extend({
+			cryogenic_plant_data --[[@as data.ModData]],
+		})
+	end
 
-	data:extend({
-		foundry_data --[[@as data.ModData]],
-		cryogenic_plant_data --[[@as data.ModData]],
-		electromagnetic_plant_data --[[@as data.ModData]],
-	})
+	if settings.startup["larger-machines-enlarge-electromagnetic-plant"].value then
+		---@type LargerMachines.ModData
+		local electromagnetic_plant_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-electromagnetic-plant",
+			data = {
+				machine = "electromagnetic-plant",
+				old_size = 4,
+				size = 8,
+				pipe_connection_category_replacement = "ducts",
+				pipe_picture_shift = {
+					north = { x = -0.5 / 32, y = -12 / 32 },
+					east = { x = 16 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 11 / 32 },
+					west = { x = -15 / 32, y = 2 / 32 },
+				},
+				pipe_cover_shift = {
+					north = { x = 0 / 32, y = -17 / 32 },
+					east = { x = 15 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 14 / 32 },
+					west = { x = -15 / 32, y = 2 / 32 },
+				},
+			},
+		}
+		data:extend({
+			electromagnetic_plant_data --[[@as data.ModData]],
+		})
+	end
 end
 
-if mods["Krastorio2-spaced-out"] then
-	---@type LargerMachines.ModData
-	local kr_advanced_furnace_data = {
-		type = "mod-data",
-		data_type = "larger-machines-definition",
-		name = "larger-machines-kr-advanced-furnace",
-		data = {
-			machine = "kr-advanced-furnace",
-			old_size = 7,
-			size = 14,
-			pipe_connection_category_replacement = "ducts",
-			pipe_picture_shift = {
-				north = { x = -0.5 / 32, y = -14 / 32 },
-				east = { x = 16 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 11 / 32 },
-				west = { x = -16 / 32, y = 2 / 32 },
+if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
+	if settings.startup["larger-machines-enlarge-kr-advanced-furnace"].value then
+		---@type LargerMachines.ModData
+		local kr_advanced_furnace_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-kr-advanced-furnace",
+			data = {
+				machine = "kr-advanced-furnace",
+				old_size = 7,
+				size = 14,
+				pipe_connection_category_replacement = "ducts",
+				pipe_picture_shift = {
+					north = { x = -0.5 / 32, y = -14 / 32 },
+					east = { x = 16 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 11 / 32 },
+					west = { x = -16 / 32, y = 2 / 32 },
+				},
+				pipe_cover_shift = {
+					north = { x = 0 / 32, y = -17 / 32 },
+					east = { x = 15 / 32, y = 1.5 / 32 },
+					south = { x = -1 / 32, y = 14 / 32 },
+					west = { x = -15 / 32, y = 2 / 32 },
+				},
 			},
-			pipe_cover_shift = {
-				north = { x = 0 / 32, y = -17 / 32 },
-				east = { x = 15 / 32, y = 1.5 / 32 },
-				south = { x = -1 / 32, y = 14 / 32 },
-				west = { x = -15 / 32, y = 2 / 32 },
-			},
-		},
-	}
-	data:extend({
-		kr_advanced_furnace_data --[[@as data.ModData]],
-	})
+		}
+		data:extend({
+			kr_advanced_furnace_data --[[@as data.ModData]],
+		})
+	end
 end
