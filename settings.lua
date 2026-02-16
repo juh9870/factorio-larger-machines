@@ -31,3 +31,14 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 		},
 	})
 end
+
+if mods["maraxsis"] then
+	data:extend({
+		{
+			type = "bool-setting",
+			name = "larger-machines-maraxsis-compat",
+			setting_type = "startup",
+			default_value = true,
+		},
+	})
+end

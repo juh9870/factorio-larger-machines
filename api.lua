@@ -235,6 +235,14 @@ end
 ---@class LargerMachines.API
 local api = {}
 
+---@type Directional<XYOpt>
+api.DOUBLE_SIZE_PIPE_COVER_SHIFTS = {
+	north = { x = 0 / 32, y = -17 / 32 },
+	east = { x = 15 / 32, y = 1.5 / 32 },
+	south = { x = -1 / 32, y = 14 / 32 },
+	west = { x = -15 / 32, y = 2 / 32 },
+}
+
 ---@param props LargerMachines.ResizeProps
 api.apply_to_machine = function(props)
 	local machine = data.raw["assembling-machine"][props.machine]

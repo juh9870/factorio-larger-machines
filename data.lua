@@ -26,6 +26,8 @@
 ---@field x? number
 ---@field y? number
 
+local api = require("api") --[[@as LargerMachines.API]]
+
 if mods["space-age"] then
 	if settings.startup["larger-machines-enlarge-foundry"].value then
 		---@type LargerMachines.ModData
@@ -38,12 +40,7 @@ if mods["space-age"] then
 				old_size = 5,
 				size = 10,
 				pipe_connection_category_replacement = "ducts",
-				pipe_cover_shift = {
-					north = { x = 0 / 32, y = -17 / 32 },
-					east = { x = 15 / 32, y = 1.5 / 32 },
-					south = { x = -1 / 32, y = 14 / 32 },
-					west = { x = -15 / 32, y = 2 / 32 },
-				},
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
 			},
 		}
 
@@ -69,12 +66,7 @@ if mods["space-age"] then
 					south = { x = 0 / 32, y = 14 / 32 },
 					west = { x = -16 / 32, y = 1.5 / 32 },
 				},
-				pipe_cover_shift = {
-					north = { x = 0 / 32, y = -17 / 32 },
-					east = { x = 15 / 32, y = 1.5 / 32 },
-					south = { x = -1 / 32, y = 14 / 32 },
-					west = { x = -15 / 32, y = 2 / 32 },
-				},
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
 			},
 		}
 		data:extend({
@@ -99,12 +91,7 @@ if mods["space-age"] then
 					south = { x = -1 / 32, y = 11 / 32 },
 					west = { x = -15 / 32, y = 2 / 32 },
 				},
-				pipe_cover_shift = {
-					north = { x = 0 / 32, y = -17 / 32 },
-					east = { x = 15 / 32, y = 1.5 / 32 },
-					south = { x = -1 / 32, y = 14 / 32 },
-					west = { x = -15 / 32, y = 2 / 32 },
-				},
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
 			},
 		}
 		data:extend({
@@ -131,12 +118,7 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 					south = { x = -1 / 32, y = 11 / 32 },
 					west = { x = -16 / 32, y = 2 / 32 },
 				},
-				pipe_cover_shift = {
-					north = { x = 0 / 32, y = -17 / 32 },
-					east = { x = 15 / 32, y = 1.5 / 32 },
-					south = { x = -1 / 32, y = 14 / 32 },
-					west = { x = -15 / 32, y = 2 / 32 },
-				},
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
 			},
 		}
 		data:extend({
