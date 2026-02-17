@@ -43,7 +43,7 @@ if mods["space-age"] then
 			type = "bool-setting",
 			name = "larger-machines-enlarge-biolab",
 			setting_type = "startup",
-			default_value = false,
+			default_value = true,
 		},
 	})
 end

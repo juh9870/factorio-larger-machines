@@ -13,7 +13,8 @@
     "? Krastorio2-spaced-out",
     "? Krastorio2",
     "? maraxsis",
-    "? factorio_hd_age_space_age_production"
+    "(?) factorio_hd_age_space_age_production",
+    "(?) factorio_hd_age_base_game_production"
   ],
   "quality_required": false,
   "rail_bridges_required": false,
