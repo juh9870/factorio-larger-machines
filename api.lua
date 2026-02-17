@@ -170,7 +170,7 @@ end
 ---@param gs data.CraftingMachineGraphicsSet | nil
 ---@param ratio number
 local function patch_graphics_set(gs, ratio)
-	log("Machine graphics:\n" .. serpent.block(gs))
+	-- log("Machine graphics:\n" .. serpent.block(gs))
 	if gs == nil then
 		return
 	end
@@ -281,7 +281,7 @@ api.apply_to_machine = function(props)
 	end
 
 	if machine.fluid_boxes ~= nil then
-		log("Machine fluid_boxes:\n" .. serpent.block(machine.fluid_boxes))
+		-- log("Machine fluid_boxes:\n" .. serpent.block(machine.fluid_boxes))
 		for _, box in pairs(machine.fluid_boxes) do
 			patch_sprite(box.pipe_covers, ratio, props.pipe_cover_shift)
 			patch_sprite(box.pipe_covers_frozen, ratio, props.pipe_cover_shift)
