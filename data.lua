@@ -157,6 +157,25 @@ if mods["space-age"] then
 			electromagnetic_plant_data --[[@as data.ModData]],
 		})
 	end
+
+	if settings.startup["larger-machines-enlarge-big-mining-drill"].value then
+		---@type LargerMachines.ModData
+		local electromagnetic_plant_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-big-mining-drill",
+			data = {
+				machine = "big-mining-drill",
+				old_size = 5,
+				size = 10,
+				pipe_connection_category_replacement = "ducts",
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+			},
+		}
+		data:extend({
+			electromagnetic_plant_data --[[@as data.ModData]],
+		})
+	end
 end
 
 if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then

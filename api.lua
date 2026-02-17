@@ -167,7 +167,7 @@ local function patch_sprite(sprite, ratio, extra_shift)
 	end
 end
 
----@param gs data.CraftingMachineGraphicsSet | nil
+---@param gs data.CraftingMachineGraphicsSet | data.MiningDrillGraphicsSet | nil
 ---@param ratio number
 local function patch_graphics_set(gs, ratio)
 	-- log("Machine graphics:\n" .. serpent.block(gs))
@@ -232,6 +232,34 @@ local function patch_circuit_connector(conn, ratio)
 	conn.points.shadow.copper = patch_vector(conn.points.shadow.copper, ratio)
 end
 
+---@param box data.FluidBox | nil
+---@param props LargerMachines.ResizeProps
+local function patch_fluid_box(box, props)
+	if box == nil then
+		return
+	end
+
+	local ratio = props.size / props.old_size
+
+	patch_sprite(box.pipe_covers, ratio, props.pipe_cover_shift)
+	patch_sprite(box.pipe_covers_frozen, ratio, props.pipe_cover_shift)
+	patch_sprite(box.pipe_picture, ratio, props.pipe_picture_shift)
+	patch_sprite(box.pipe_picture_frozen, ratio, props.pipe_picture_shift)
+	patch_sprite(box.mirrored_pipe_picture, ratio, props.pipe_picture_shift)
+	patch_sprite(box.mirrored_pipe_picture_frozen, ratio, props.pipe_picture_shift)
+	for _, conn in pairs(box.pipe_connections) do
+		if props.pipe_connection_category_replacement ~= nil then
+			conn.connection_category = props.pipe_connection_category_replacement
+		end
+		conn.position = patch_conn_pos(conn.position, props.old_size, props.size)
+		if conn.positions ~= nil then
+			for k, pos in pairs(conn.positions) do
+				conn.positions[k] = patch_conn_pos(pos, props.old_size, props.size)
+			end
+		end
+	end
+end
+
 ---@class LargerMachines.API
 local api = {}
 
@@ -245,10 +273,12 @@ api.DOUBLE_SIZE_PIPE_COVER_SHIFTS = {
 
 ---@param props LargerMachines.ResizeProps
 api.apply_to_machine = function(props)
+	---@type data.AssemblingMachinePrototype|data.MiningDrillPrototype|data.LabPrototype
 	local machine = data.raw["assembling-machine"][props.machine]
 		or data.raw["furnace"][props.machine]
 		or data.raw["rocket-silo"][props.machine]
 		or data.raw["lab"][props.machine]
+		or data.raw["mining-drill"][props.machine]
 
 	if machine == nil then
 		error(
@@ -270,11 +300,29 @@ api.apply_to_machine = function(props)
 	patch_graphics_set(machine.graphics_set, ratio)
 	patch_graphics_set(machine.graphics_set_flipped, ratio)
 
-	-- Lab prototype
-	---@diagnostic disable-next-line: undefined-field
-	patch_animation(machine.on_animation, ratio)
-	---@diagnostic disable-next-line: undefined-field
-	patch_animation(machine.off_animation, ratio)
+	if machine.type == "mining-drill" then
+		-- Mining Drill prototype
+		patch_graphics_set(machine.wet_mining_graphics_set, ratio)
+		patch_sprite(machine.base_picture, ratio)
+		patch_fluid_box(machine.input_fluid_box, props)
+		patch_fluid_box(machine.output_fluid_box, props)
+		local extension = machine.resource_searching_radius - props.old_size / 2
+		log(
+			"Patching resource_searching_radius from "
+				.. machine.resource_searching_radius
+				.. " to "
+				.. (props.size / 2 + extension)
+		)
+		machine.resource_searching_radius = props.size / 2 + extension
+	end
+
+	if machine.type == "lab" then
+		-- Lab prototype
+		patch_animation(machine.on_animation, ratio)
+		patch_animation(machine.off_animation, ratio)
+	end
+
+	machine.vector_to_place_result = patch_conn_pos(machine.vector_to_place_result, props.old_size, props.size)
 
 	if props.speed_mult ~= nil then
 		machine.crafting_speed = machine.crafting_speed * props.speed_mult
@@ -283,23 +331,7 @@ api.apply_to_machine = function(props)
 	if machine.fluid_boxes ~= nil then
 		-- log("Machine fluid_boxes:\n" .. serpent.block(machine.fluid_boxes))
 		for _, box in pairs(machine.fluid_boxes) do
-			patch_sprite(box.pipe_covers, ratio, props.pipe_cover_shift)
-			patch_sprite(box.pipe_covers_frozen, ratio, props.pipe_cover_shift)
-			patch_sprite(box.pipe_picture, ratio, props.pipe_picture_shift)
-			patch_sprite(box.pipe_picture_frozen, ratio, props.pipe_picture_shift)
-			patch_sprite(box.mirrored_pipe_picture, ratio, props.pipe_picture_shift)
-			patch_sprite(box.mirrored_pipe_picture_frozen, ratio, props.pipe_picture_shift)
-			for _, conn in pairs(box.pipe_connections) do
-				if props.pipe_connection_category_replacement ~= nil then
-					conn.connection_category = props.pipe_connection_category_replacement
-				end
-				conn.position = patch_conn_pos(conn.position, props.old_size, props.size)
-				if conn.positions ~= nil then
-					for k, pos in pairs(conn.positions) do
-						conn.positions[k] = patch_conn_pos(pos, props.old_size, props.size)
-					end
-				end
-			end
+			patch_fluid_box(box, props)
 		end
 	end
 end

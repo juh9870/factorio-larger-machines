@@ -35,6 +35,12 @@ if mods["space-age"] then
 		},
 		{
 			type = "bool-setting",
+			name = "larger-machines-enlarge-big-mining-drill",
+			setting_type = "startup",
+			default_value = false,
+		},
+		{
+			type = "bool-setting",
 			name = "larger-machines-enlarge-biolab",
 			setting_type = "startup",
 			default_value = false,
