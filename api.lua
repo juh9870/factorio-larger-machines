@@ -248,6 +248,7 @@ api.apply_to_machine = function(props)
 	local machine = data.raw["assembling-machine"][props.machine]
 		or data.raw["furnace"][props.machine]
 		or data.raw["rocket-silo"][props.machine]
+		or data.raw["lab"][props.machine]
 
 	if machine == nil then
 		error(
@@ -268,6 +269,12 @@ api.apply_to_machine = function(props)
 
 	patch_graphics_set(machine.graphics_set, ratio)
 	patch_graphics_set(machine.graphics_set_flipped, ratio)
+
+	-- Lab prototype
+	---@diagnostic disable-next-line: undefined-field
+	patch_animation(machine.on_animation, ratio)
+	---@diagnostic disable-next-line: undefined-field
+	patch_animation(machine.off_animation, ratio)
 
 	if props.speed_mult ~= nil then
 		machine.crafting_speed = machine.crafting_speed * props.speed_mult

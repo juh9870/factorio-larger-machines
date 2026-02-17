@@ -38,7 +38,6 @@ if settings.startup["larger-machines-enlarge-centrifuge"].value then
 			machine = "centrifuge",
 			old_size = 3,
 			size = 6,
-			pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
 		},
 	}
 	data:extend({
@@ -135,6 +134,23 @@ if mods["space-age"] then
 					west = { x = -15 / 32, y = 2 / 32 },
 				},
 				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+			},
+		}
+		data:extend({
+			electromagnetic_plant_data --[[@as data.ModData]],
+		})
+	end
+
+	if settings.startup["larger-machines-enlarge-biolab"].value then
+		---@type LargerMachines.ModData
+		local electromagnetic_plant_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-biolab",
+			data = {
+				machine = "biolab",
+				old_size = 5,
+				size = 10,
 			},
 		}
 		data:extend({
