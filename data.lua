@@ -28,6 +28,24 @@
 
 local api = require("api") --[[@as LargerMachines.API]]
 
+if settings.startup["larger-machines-enlarge-centrifuge"].value then
+	---@type LargerMachines.ModData
+	local electromagnetic_plant_data = {
+		type = "mod-data",
+		data_type = "larger-machines-definition",
+		name = "larger-machines-centrifuge",
+		data = {
+			machine = "centrifuge",
+			old_size = 3,
+			size = 6,
+			pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+		},
+	}
+	data:extend({
+		electromagnetic_plant_data --[[@as data.ModData]],
+	})
+end
+
 if mods["space-age"] then
 	if settings.startup["larger-machines-enlarge-foundry"].value then
 		---@type LargerMachines.ModData

@@ -1,3 +1,12 @@
+data:extend({
+	{
+		type = "bool-setting",
+		name = "larger-machines-enlarge-centrifuge",
+		setting_type = "startup",
+		default_value = false,
+	},
+})
+
 if mods["space-age"] then
 	data:extend({
 		{
