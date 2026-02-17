@@ -57,6 +57,14 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 			default_value = true,
 		},
 	})
+	data:extend({
+		{
+			type = "bool-setting",
+			name = "larger-machines-enlarge-kr-singularity-lab",
+			setting_type = "startup",
+			default_value = false,
+		},
+	})
 end
 
 if mods["maraxsis"] then

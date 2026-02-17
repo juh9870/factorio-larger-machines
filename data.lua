@@ -203,4 +203,20 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 			kr_advanced_furnace_data --[[@as data.ModData]],
 		})
 	end
+	if settings.startup["larger-machines-enlarge-kr-singularity-lab"].value then
+		---@type LargerMachines.ModData
+		local kr_singularity_lab_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-kr-singularity-lab",
+			data = {
+				machine = "kr-singularity-lab",
+				old_size = 8,
+				size = 16,
+			},
+		}
+		data:extend({
+			kr_singularity_lab_data --[[@as data.ModData]],
+		})
+	end
 end
