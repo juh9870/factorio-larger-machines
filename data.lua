@@ -30,7 +30,7 @@ local api = require("api") --[[@as LargerMachines.API]]
 
 if settings.startup["larger-machines-enlarge-centrifuge"].value then
 	---@type LargerMachines.ModData
-	local electromagnetic_plant_data = {
+	local centrifuge_data = {
 		type = "mod-data",
 		data_type = "larger-machines-definition",
 		name = "larger-machines-centrifuge",
@@ -41,7 +41,7 @@ if settings.startup["larger-machines-enlarge-centrifuge"].value then
 		},
 	}
 	data:extend({
-		electromagnetic_plant_data --[[@as data.ModData]],
+		centrifuge_data --[[@as data.ModData]],
 	})
 end
 
@@ -93,7 +93,7 @@ if mods["space-age"] then
 
 	if settings.startup["larger-machines-enlarge-biochamber"].value then
 		---@type LargerMachines.ModData
-		local cryogenic_plant_data = {
+		local biochamber_data = {
 			type = "mod-data",
 			data_type = "larger-machines-definition",
 			name = "larger-machines-biochamber",
@@ -112,7 +112,7 @@ if mods["space-age"] then
 			},
 		}
 		data:extend({
-			cryogenic_plant_data --[[@as data.ModData]],
+			biochamber_data --[[@as data.ModData]],
 		})
 	end
 
@@ -143,7 +143,7 @@ if mods["space-age"] then
 
 	if settings.startup["larger-machines-enlarge-biolab"].value then
 		---@type LargerMachines.ModData
-		local electromagnetic_plant_data = {
+		local biolab_data = {
 			type = "mod-data",
 			data_type = "larger-machines-definition",
 			name = "larger-machines-biolab",
@@ -154,13 +154,13 @@ if mods["space-age"] then
 			},
 		}
 		data:extend({
-			electromagnetic_plant_data --[[@as data.ModData]],
+			biolab_data --[[@as data.ModData]],
 		})
 	end
 
 	if settings.startup["larger-machines-enlarge-big-mining-drill"].value then
 		---@type LargerMachines.ModData
-		local electromagnetic_plant_data = {
+		local big_mining_drill_data = {
 			type = "mod-data",
 			data_type = "larger-machines-definition",
 			name = "larger-machines-big-mining-drill",
@@ -173,7 +173,7 @@ if mods["space-age"] then
 			},
 		}
 		data:extend({
-			electromagnetic_plant_data --[[@as data.ModData]],
+			big_mining_drill_data --[[@as data.ModData]],
 		})
 	end
 end
