@@ -67,6 +67,17 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 	})
 end
 
+if mods["diesel_foundry"] then
+	data:extend({
+		{
+			type = "bool-setting",
+			name = "larger-machines-enlarge-mod-df-diesel-foundry",
+			setting_type = "startup",
+			default_value = true,
+		},
+	})
+end
+
 if mods["maraxsis"] then
 	data:extend({
 		{

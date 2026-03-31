@@ -220,3 +220,25 @@ if mods["Krastorio2-spaced-out"] or mods["Krastorio2"] then
 		})
 	end
 end
+
+if mods["diesel_foundry"] then
+	if settings.startup["larger-machines-enlarge-mod-df-diesel-foundry"].value then
+		---@type LargerMachines.ModData
+		local foundry_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-diesel-foundry",
+			data = {
+				machine = "diesel-foundry",
+				old_size = 5,
+				size = 10,
+				pipe_connection_category_replacement = "ducts",
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+			},
+		}
+
+		data:extend({
+			foundry_data --[[@as data.ModData]],
+		})
+	end
+end
