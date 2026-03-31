@@ -242,3 +242,25 @@ if mods["diesel_foundry"] then
 		})
 	end
 end
+
+if mods["pelagos"] or mods["calciner"] then
+	if settings.startup["larger-machines-enlarge-mod-pelagos-calciner"].value then
+		---@type LargerMachines.ModData
+		local foundry_data = {
+			type = "mod-data",
+			data_type = "larger-machines-definition",
+			name = "larger-machines-calciner",
+			data = {
+				machine = "calciner",
+				old_size = 3,
+				size = 6,
+				pipe_connection_category_replacement = "ducts",
+				pipe_cover_shift = api.DOUBLE_SIZE_PIPE_COVER_SHIFTS,
+			},
+		}
+
+		data:extend({
+			foundry_data --[[@as data.ModData]],
+		})
+	end
+end

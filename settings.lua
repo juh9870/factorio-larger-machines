@@ -78,6 +78,17 @@ if mods["diesel_foundry"] then
 	})
 end
 
+if mods["pelagos"] or mods["calciner"] then
+	data:extend({
+		{
+			type = "bool-setting",
+			name = "larger-machines-enlarge-mod-pelagos-calciner",
+			setting_type = "startup",
+			default_value = false,
+		},
+	})
+end
+
 if mods["maraxsis"] then
 	data:extend({
 		{
