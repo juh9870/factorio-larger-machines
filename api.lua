@@ -334,6 +334,10 @@ api.apply_to_machine = function(props)
 			patch_fluid_box(box, props)
 		end
 	end
+	
+	if machine.energy_source ~= nil and machine.energy_source.fluid_box ~= nil then
+		patch_fluid_box(machine.energy_source.fluid_box, props)
+	end
 end
 
 return api
