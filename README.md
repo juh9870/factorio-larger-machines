@@ -10,12 +10,14 @@ Mod and a library for enlarging machines. Enlarged machines connect to ducts fro
 - **Cryogenic plant** - Enlarged to 10x10
 - **Biolab** - Enlarged to 10x10
 - **Advanced Furnace** (if K2SO is installed) - Enlarged to 14x14
+- **Diesel Foundry** (if Diesel Foundry is installed) - Enlarged to 10x10
 
 Disabled by default (can be enabled in mod settings):
 - **Centrifuge** - Enlarged to 6x6.
 - **Biochamber** - Enlarged to 6x6 (looks bad)
 - **Big Mining Drill** - Enlarged to 10x10
 - **Singularity Lab** (if K2SO is installed) - Enlarged to 16x16
+- **Calciner** (if Pelagos or standalone Calciner is installed) - Enlarged to 6x6
 
 Speed of enlarged machines is not affected (but you can place more beacons around them)
 
