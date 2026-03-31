@@ -12,7 +12,7 @@ Mod and a library for enlarging machines. Enlarged machines connect to ducts fro
 - **Advanced Furnace** (if K2SO is installed) - Enlarged to 14x14
 - **Diesel Foundry** (if Diesel Foundry is installed) - Enlarged to 10x10
 
-Disabled by default (can be enabled in mod settings):
+### Disabled by default (can be enabled in mod settings):
 - **Centrifuge** - Enlarged to 6x6.
 - **Biochamber** - Enlarged to 6x6 (looks bad)
 - **Big Mining Drill** - Enlarged to 10x10
