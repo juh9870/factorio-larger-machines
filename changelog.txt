@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2026-04-01
+  Features:
+    - Calciner support (Pelagos)
+    - Diesel Foundry enlargement support
+  Bugfixes:
+    - support for energy source fluidbox enlargement
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-02-17
   Features:
