@@ -86,6 +86,10 @@ local function patch_animation(anim, ratio)
 		return
 	end
 	already_patched[anim] = true
+	if anim.filename ~= nil and anim.filename:find("__BottleneckLite__", 1, true) ~= nil then
+		-- Ignore bottleneck lite indicator
+		return
+	end
 	if anim.north ~= nil then
 		patch_animation(anim.north, ratio)
 		patch_animation(anim.north_east, ratio)
@@ -185,6 +189,11 @@ local function patch_graphics_set(gs, ratio)
 			patch_animation(vw.east_animation, ratio)
 			patch_animation(vw.south_animation, ratio)
 			patch_animation(vw.west_animation, ratio)
+
+			vw.north_position = patch_vector(vw.north_position, ratio)
+			vw.south_position = patch_vector(vw.south_position, ratio)
+			vw.east_position = patch_vector(vw.east_position, ratio)
+			vw.west_position = patch_vector(vw.west_position, ratio)
 		end
 	end
 
