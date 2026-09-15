@@ -294,6 +294,25 @@ api.apply_to_machine = function(props)
 	machine.sticker_box = patch_bb(machine.sticker_box, props.old_size, props.size)
 	machine.hit_visualization_box = patch_bb(machine.hit_visualization_box, props.old_size, props.size)
 
+	for _, field in pairs({
+		"circuit_connector",
+		"circuit_connector_flipped",
+		"graphics_set",
+		"graphics_set_flipped",
+		"wet_mining_graphics_set",
+		"base_picture",
+		"input_fluid_box",
+		"output_fluid_box",
+		"on_animation",
+		"off_animation",
+		"fluid_boxes",
+	}) do
+		if machine[field] ~= nil then
+			machine[field] = table.deepcopy(machine[field])
+		end
+	end
+
+	machine.circuit_connector = table.deepcopy(machine.circuit_connector)
 	patch_circuit_connector(machine.circuit_connector, ratio)
 	patch_circuit_connector(machine.circuit_connector_flipped, ratio)
 
@@ -334,8 +353,9 @@ api.apply_to_machine = function(props)
 			patch_fluid_box(box, props)
 		end
 	end
-	
+
 	if machine.energy_source ~= nil and machine.energy_source.fluid_box ~= nil then
+		machine.energy_source.fluid_box = table.deepcopy(machine.energy_source.fluid_box)
 		patch_fluid_box(machine.energy_source.fluid_box, props)
 	end
 end
