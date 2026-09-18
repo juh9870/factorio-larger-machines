@@ -22,4 +22,4 @@ Mod and a library for enlarging machines. Enlarged machines connect to ducts fro
 Speed of enlarged machines is not affected (but you can place more beacons around them)
 
 ## Compatibility
-- [Maraxsis](https://mods.factorio.com/mod/maraxsis) - Maraxsis gates ducts into itself, soft-locking the usage of enlarged machines. To combat this, the ducts recipe is moved back to Nauvis and switched to use steel+concrete instead of tungsten
+- [Maraxsis](https://mods.factorio.com/mod/maraxsis) and [Maraxsis Classic](https://mods.factorio.com/mod/maraxsis-classic) - Maraxsis gates ducts into itself, soft-locking the usage of enlarged machines. To combat this, the ducts recipe is moved back to Nauvis and switched to use steel+concrete instead of tungsten

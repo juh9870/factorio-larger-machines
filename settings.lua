@@ -89,7 +89,7 @@ if mods["pelagos"] or mods["calciner"] then
 	})
 end
 
-if mods["maraxsis"] then
+if mods["maraxsis"] or mods["maraxsis-classic"] then
 	data:extend({
 		{
 			type = "bool-setting",

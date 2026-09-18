@@ -1,4 +1,7 @@
-if not mods["maraxsis"] or not settings.startup["larger-machines-maraxsis-compat"].value then
+if
+	not (mods["maraxsis"] or mods["maraxsis-classic"])
+	or not settings.startup["larger-machines-maraxsis-compat"].value
+then
 	return
 end
 
