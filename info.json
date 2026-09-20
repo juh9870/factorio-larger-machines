@@ -17,6 +17,7 @@
     "? calciner",
     "? maraxsis",
     "? maraxsis-classic",
+    "(?) PlanetsLib >= 1.26.3",
     "(?) Tintrifuge",
     "(?) factorio_hd_age_space_age_production",
     "(?) factorio_hd_age_base_game_production"
