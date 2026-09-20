@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2026-09-20
+  Features:
+    - science pack icons scaling on labs (and a new mod setting with mode selection)
+  Compatibility:
+    - fixed misplacent indicator with Bottleneck Lite
+    - hidden optional dependency on PlanetsLib to avoid sceince pack scale conflicts
+    - Maraxsis Classic support
+  Bugfixes:
+    - deepcopy modified machine properties to avoid mod conflicts
+---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 2026-06-28
   Features:
