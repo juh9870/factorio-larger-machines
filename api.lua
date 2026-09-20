@@ -76,6 +76,17 @@ local function patch_vector(vec, ratio)
 	return vec
 end
 
+---Patched a number by multiplying it by ratio if it's present
+---@param scale float | nil
+---@param ratio number
+---@return float | nil
+local function patch_number(scale, ratio)
+	if scale == nil then
+		return nil
+	end
+	return scale * ratio
+end
+
 ---@param anim data.Animation | data.Animation4Way | nil
 ---@param ratio number
 local function patch_animation(anim, ratio)
@@ -315,6 +326,7 @@ api.apply_to_machine = function(props)
 		"on_animation",
 		"off_animation",
 		"fluid_boxes",
+		"icons_positioning",
 	}) do
 		if machine[field] ~= nil then
 			machine[field] = table.deepcopy(machine[field])
@@ -348,6 +360,17 @@ api.apply_to_machine = function(props)
 		-- Lab prototype
 		patch_animation(machine.on_animation, ratio)
 		patch_animation(machine.off_animation, ratio)
+		if machine.icons_positioning ~= nil then
+			for _, pos in pairs(machine.icons_positioning) do
+				if settings.startup["larger-machines-science-overlay-mode"].value == "scale" then
+					pos.scale = patch_number(pos.scale, ratio)
+				else
+					pos.max_icons_per_row = patch_number(pos.max_icons_per_row, ratio)
+					pos.max_icon_rows = patch_number(pos.max_icon_rows, ratio)
+				end
+				pos.shift = patch_vector(pos.shift, ratio)
+			end
+		end
 	end
 
 	machine.vector_to_place_result = patch_conn_pos(machine.vector_to_place_result, props.old_size, props.size)

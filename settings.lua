@@ -1,5 +1,12 @@
 data:extend({
 	{
+		type = "string-setting",
+		name = "larger-machines-science-overlay-mode",
+		setting_type = "startup",
+		default_value = "scale",
+		allowed_values = { "scale", "extend" },
+	},
+	{
 		type = "bool-setting",
 		name = "larger-machines-enlarge-centrifuge",
 		setting_type = "startup",
